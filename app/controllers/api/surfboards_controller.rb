@@ -1,5 +1,5 @@
 class  Api::SurfboardsController < ApplicationController
-  before_action :set_surfboard, only: [:show, :edit, :destroy]
+  before_action :set_surfboard, only: [:show, :update, :destroy]
 
   def index
     render json: Surfboard.all
@@ -37,7 +37,7 @@ class  Api::SurfboardsController < ApplicationController
   private
 
   def set_surfboard
-    @surfboard = Surfboard.find(params[:id])
+    @surfboard = Surfboard.find_by(id: params[:id])
   end
 
   def surfboard_params
